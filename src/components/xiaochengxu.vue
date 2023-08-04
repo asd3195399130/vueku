@@ -102,9 +102,9 @@
         <span id="boc2">推荐值 {{item.val}}%</span>
         <p>大家都在读</p>
       </div>
-      <div id=""></div>
+      <div id></div>
     </div>
-    <div class="class"></div>
+    <div class="class">123</div>
     <!-- 底部 -->
     <div class="footer">
       <div class="footer-left">
