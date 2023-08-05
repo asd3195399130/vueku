@@ -10,7 +10,7 @@ export default {
   name: "ProJect",
   data() {
     return {
-      ml: "top5"
+      ml: "top5/飙升榜"
     };
   },
   created() {},
