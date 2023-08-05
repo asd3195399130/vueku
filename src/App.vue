@@ -1,19 +1,17 @@
 <template>
-  <div id="app">  
-   <Code></Code>
+  <div id="app">
+    <Code></Code>
   </div>
 </template>
 
 <script>
-
-import Code from './components/xiaochengxu.vue'
-
+import Code from "./components/xiaochengxu.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Code
   }
-}
+};
 </script>
 
 <style>
