@@ -104,7 +104,8 @@
       </div>
       <div id></div>
     </div>
-    <div class="class">123666asd666哈是</div>
+    <div class="class" v-for="(item,index) in title[n].activers" :key="index">{{item.name}}</div>
+
     <!-- 底部 -->
     <div class="footer">
       <div class="footer-left">
@@ -273,7 +274,11 @@ export default {
         },
         {
           name: "分类",
-          activer: []
+          activers: [
+            {
+              name: "张三"
+            }
+          ]
         },
         {
           name: "排行",
