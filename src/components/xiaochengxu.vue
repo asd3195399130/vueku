@@ -430,9 +430,7 @@ export default {
   top: 15px;
   left: 5px;
 }
-#my {
-  // z-index: 9999;
-}
+
 ul {
   width: 380px;
   background: #ffffff;
