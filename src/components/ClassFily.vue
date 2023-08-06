@@ -108,6 +108,8 @@ h1 {
 img {
   width: 100%;
   height: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .right {
   float: right;
