@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div class="Clas">
+  <div class="Clas" @scroll="showlist">
     <div class="box" v-for="item in moth" :key="item.id">
       <div class="flex">
         <h1>{{item.name}}</h1>
@@ -66,6 +66,11 @@ export default {
       ]
     };
   },
+  methods: {
+    showlist(event) {
+      console.log(event.target.scrollTop);
+    }
+  },
   created() {},
   mounted() {}
 };
@@ -81,7 +86,7 @@ export default {
   clear: both;
 }
 .box {
-  width: 380px;
+  width: 100%;
   height: 222px;
   background: #bbb5ac;
   border-radius: 20px;
@@ -120,6 +125,12 @@ img {
 }
 p {
   color: #d8dad9;
+  width: 176px;
+  height: 50px;
+  overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 30px;
+  text-align: left;
 }
 </style>

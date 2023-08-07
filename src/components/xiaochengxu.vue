@@ -95,21 +95,25 @@
         </div>
       </div>
     </div>
-    <div class="box" v-for="(item,index) in title[n].activer" :key="index">
-      <div id="box-i">
-        <img :src="item.src" />
-        <h3>{{item.name}}</h3>
-        <span id="boc">{{item.text}}</span>
-        <span id="boc1">|</span>
-        <span id="boc2">推荐值 {{item.val}}%</span>
-        <p>大家都在读</p>
+    <!-- 书架内容 -->
+    <div class="scro" @scroll="onScroll">
+      <div class="box" v-for="(item,index) in title[n].activer" :key="index">
+        <div id="box-i">
+          <img :src="item.src" />
+          <h3>{{item.name}}</h3>
+          <span id="boc">{{item.text}}</span>
+          <span id="boc1">|</span>
+          <span id="boc2">推荐值 {{item.val}}%</span>
+          <p>大家都在读</p>
+        </div>
+        <div id></div>
       </div>
-      <div id></div>
+      <ClassFily v-if="show"></ClassFily>
+      <NoTe v-if="shat"></NoTe>
+      <NoPe v-if="chat"></NoPe>
+      <ProJect v-if="pot"></ProJect>
     </div>
-    <ClassFily v-if="show"></ClassFily>
-    <NoTe v-if="shat"></NoTe>
-    <NoPe v-if="chat"></NoPe>
-    <ProJect v-if="pot"></ProJect>
+
     <!-- 底部 -->
     <div class="footer">
       <div class="footer-left">
@@ -276,7 +280,7 @@ export default {
             {
               name: "斗破苍穹",
               src:
-                "http://localhost:8080/vueku/img/0ff41bd5ad6eddc448be31f537dbb6fd52663366.a4986b80.webp",
+                "https://bookcover.yuewen.com/qdbimg/349573/1209977/180.webp",
               text: "天蚕土豆",
               val: 93.6,
               status: false
@@ -316,8 +320,10 @@ export default {
   },
   methods: {
     inln(index) {
-      console.log(index);
       this.n = index;
+    },
+    onScroll(event) {
+      console.log(event.target.scrollTop);
     }
   },
   watch: {
@@ -342,14 +348,28 @@ export default {
   },
   created() {},
   mounted() {
-    console.log(this.title);
+    window.addEventListener("scroll", this.onScroll);
   }
 };
 </script>
 <style lang="less" scoped>
 /* @import url(); 引入css类 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  height: 844px;
+  background: red;
+}
+.scro {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 1200px;
+}
 #con {
-  width: 380px;
+  width: 100%;
   height: 306px;
   background: #ffffff;
   position: relative;
@@ -362,19 +382,12 @@ export default {
   justify-content: space-around;
   position: fixed;
   bottom: 0;
-  left: 0;
-  width: 390px;
+  width: 100%;
   height: 50px;
   background: rgb(240, 234, 234);
-  z-index: 9999;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 .box {
-  width: 380px;
+  width: 100%;
   background: #c6def7;
   position: relative;
   margin-top: 17px;
@@ -385,7 +398,7 @@ export default {
 }
 #box-i p {
   position: absolute;
-  top: 87px;
+  top: 103px;
   left: 97px;
   font-size: 12px;
   font-weight: 100;
@@ -398,12 +411,14 @@ export default {
   font-size: 13px;
   font-weight: 200;
   color: #4d4d4e;
+  display: inline-block;
+  width: 55px;
 }
 #boc1 {
   position: absolute;
   top: 66px;
   left: 150px;
-  font-size: 15px;
+  font-size: 10px;
   font-weight: 200;
   color: #4d4d4e;
 }
@@ -419,7 +434,7 @@ export default {
   position: absolute;
   top: 35px;
   left: 97px;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
   color: #4d4d4e;
 }
@@ -432,7 +447,7 @@ export default {
 }
 
 ul {
-  width: 380px;
+  width: 100%;
   background: #ffffff;
   list-style: none;
   display: flex;
@@ -458,7 +473,7 @@ ul li {
 }
 
 .cen {
-  width: 380px;
+  width: 100%;
   height: 17px;
 }
 .lav {
@@ -482,7 +497,7 @@ ul li {
   color: #fff;
 }
 .heafer {
-  width: 380px;
+  width: 100%;
   height: 200px;
   background: #aeafb3;
   border-radius: 30px;
@@ -561,6 +576,7 @@ i {
 
 #int {
   margin: 20px auto;
+  z-index: 9999;
 }
 .inp {
   width: 263px;
