@@ -8,8 +8,21 @@
 import Code from "./components/xiaochengxu.vue";
 export default {
   name: "App",
+  data() {
+    return {
+      data: null
+    };
+  },
+  methods: {
+    id(data) {
+      this.data = data;
+    }
+  },
   components: {
     Code
+  },
+  mounted() {
+    this.$bus.$on("inps", this.id);
   }
 };
 </script>

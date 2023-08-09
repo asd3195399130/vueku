@@ -1,6 +1,16 @@
 <!--  -->
 <template>
-  <div class></div>
+  <div class>
+    <div class="header" v-for="item in math" :key="item.id">
+      <h3>{{item.id}}</h3>
+      <img :src="item.url" alt />
+      <div class="text">
+        <h2>{{item.name}}</h2>
+        <p>{{item.author}}</p>
+        <p>推荐值 {{item.price}}%</p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -139,4 +149,53 @@ export default {
 </script>
 <style lang="less" scoped>
 /* @import url(); 引入css类 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.header {
+  width: 100%;
+  height: 130px;
+
+  display: flex;
+  margin-top: 15px;
+}
+h3 {
+  height: 27px;
+  width: 27px;
+
+  line-height: 30px;
+  margin: 41px 8px;
+}
+.text {
+  width: 200px;
+  height: 129px;
+  margin-left: 10px;
+}
+img {
+  width: 70px;
+  height: 100px;
+  margin-top: 13px;
+}
+h2 {
+  font-size: 20px;
+  font-weight: 800;
+  font-family: "宋体";
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 34px;
+}
+p {
+  text-align: left;
+  font-size: 13px;
+  margin-top: 12px;
+  font-family: "宋体";
+}
+p:nth-last-child(1) {
+  color: red;
+  font-size: 12px;
+  font-family: "宋体";
+}
 </style>
